@@ -1,0 +1,14 @@
+<h1> User Details </h1>
+<h2> Username </h2>
+<%= @user.username %>
+
+<h2> Photos </h2>
+
+<table>
+<% @user.photos.each do |photo| %>
+<tr>
+  <td><img src="<%= photo.image %>" width="100"></td>
+  <td><%= photo.caption %></td>
+</tr>
+    <% end %>
+</table>

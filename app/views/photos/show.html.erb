@@ -14,18 +14,28 @@
       <dt>User</dt>
       <dd><%= @photo.user_id %></dd>
 
+      <dt> Comments </dt>
+      <dd>
+      <% @photo.comments.each do |comment| %>
+      <p> <%= comment.body %> </p>
+      <p> <%= comment.user.username %> </p>
+      <% end %>
+      </dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/photos" class="btn btn-primary">
         Back
       </a>
+  <% if @photo.user_id == current_user.id %>
       <a href="/photos/<%= @photo.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_photo/<%= @photo.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+          <% end %>
     </div>
   </div>
 </div>

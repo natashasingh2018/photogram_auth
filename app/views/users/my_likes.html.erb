@@ -1,0 +1,14 @@
+<h1> User Details </h1>
+<h2> Username </h2>
+<%= current_user.username %>
+
+<h2> My Likes </h2>
+
+<table>
+<% current_user.liked_photos.each do |photo| %>
+<tr>
+  <td><%= photo.caption %></td>
+    <td><img src="<%= photo.image %>" width="100"></td>
+</tr>
+    <% end %>
+</table>

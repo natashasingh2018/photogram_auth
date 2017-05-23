@@ -43,8 +43,34 @@
           <li><a href="/comments">Comments</a></li>
           <li><a href="/likes">Likes</a></li>
           <li><a href="/photos">Photos</a></li>
+          <li><a href="/users">Users</a></li>
           <li><a href="/rails/info">Sitemap</a></li>
         </ul>
+
+        <!-- if there is a signed in user -->
+        <% if current_user != nil %>
+        <!-- show a link to that user's wall of photos-->
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/users/<%= current_user.id %>">
+              View my photos
+            </a>
+          </li>
+        </ul>
+        <% end %>
+
+        <% if current_user != nil %>
+        <!-- show a link to that user's wall of photos-->
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/my_likes">
+              View my likes
+            </a>
+          </li>
+        </ul>
+        <% end %>
+
+
 
         <!-- if there is no signed in users -->
 
@@ -66,11 +92,14 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <a href="/users/edit">
+              <i class="fa fa-fw fa-edit"></i>
               Edit <%= current_user.username %>
             </a>
           </li>
           <li>
-            <a href="/users/sign_out" data-method="delete" rel="nofollow">Sign Out</a>
+            <a href="/users/sign_out" data-method="delete" rel="nofollow">
+              <i class="fa fa-fw fa-sign-out"></i>
+              Sign Out</a>
           </li>
         </ul>
 
